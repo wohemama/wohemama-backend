@@ -32,7 +32,7 @@ export default function Pagination({
           上一页
         </Link>
       </div>
-      <div className="hidden md:-mt-px md:flex">
+      <div className=" md:-mt-px md:flex">
         <Link href={"/orders/1"} className={activate(1)}>
           1
         </Link>
@@ -70,7 +70,7 @@ export default function Pagination({
         <Link
           href={`/orders/${currentPagination + 1}`}
           className={
-            "border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300"
+            "border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-lg font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300"
           }
         >
           下一页
