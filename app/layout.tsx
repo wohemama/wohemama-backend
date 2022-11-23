@@ -11,10 +11,11 @@ import {
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { Dialog, Menu, Transition } from "@headlessui/react";
+console.log(location.pathname.substring(0, 7))
 
 const sidebarNavigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: false },
-  { name: "订单", href: "#", icon: BuildingStorefrontIcon, current: true },
+  { name: "Home", href: "/", icon: HomeIcon, current: location.pathname === '/' ? true : false },
+  { name: "订单", href: "/orders/1", icon: BuildingStorefrontIcon, current: location.pathname.substring(0, 7) === '/orders' ? true : false },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
