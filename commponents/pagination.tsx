@@ -23,7 +23,9 @@ export default function Pagination({
             aria-label="分页"
           >
             <Link
-              href={`/orders/${currentPagination - 1}`}
+              href={`/orders/${
+                currentPagination - 1 === 0 ? 1 : currentPagination - 1
+              }`}
               className={
                 "relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               }
@@ -32,42 +34,56 @@ export default function Pagination({
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
             </Link>
 
-            {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
-            <Link href={"/orders/1"} className={activate(1)}>
-              1
-            </Link>
-
-            <Link href={"/orders/2"} className={activate(2)}>
-              2
-            </Link>
-            <Link href={"/orders/3"} className={activate(3)}>
-              3
-            </Link>
+            {totalPagination >= 1 && (
+              <Link href={"/orders/1"} className={activate(1)}>
+                1
+              </Link>
+            )}
+            {totalPagination >= 2 && (
+              <Link href={"/orders/2"} className={activate(2)}>
+                2
+              </Link>
+            )}
+            {totalPagination >= 3 && (
+              <Link href={"/orders/3"} className={activate(3)}>
+                3
+              </Link>
+            )}
 
             <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
               ...
             </span>
-            <Link
-              href={`/orders/${totalPagination - 2}`}
-              className={activate(totalPagination - 2)}
-            >
-              {totalPagination - 2}
-            </Link>
-            <Link
-              href={`/orders/${totalPagination - 1}`}
-              className={activate(totalPagination - 1)}
-            >
-              {totalPagination - 1}
-            </Link>
-            <Link
-              href={`/orders/${totalPagination}`}
-              className={activate(totalPagination)}
-            >
-              {totalPagination}
-            </Link>
+            {totalPagination >= 6 && (
+              <Link
+                href={`/orders/${totalPagination - 2}`}
+                className={activate(totalPagination - 2)}
+              >
+                {totalPagination - 2}
+              </Link>
+            )}
+            {totalPagination >= 5 && (
+              <Link
+                href={`/orders/${totalPagination - 1}`}
+                className={activate(totalPagination - 1)}
+              >
+                {totalPagination - 1}
+              </Link>
+            )}
+            {totalPagination >= 4 && (
+              <Link
+                href={`/orders/${totalPagination}`}
+                className={activate(totalPagination)}
+              >
+                {totalPagination}
+              </Link>
+            )}
 
             <Link
-              href={`/orders/${currentPagination + 1}`}
+              href={`/orders/${
+                currentPagination + 1 > totalPagination
+                  ? totalPagination
+                  : currentPagination + 1
+              }`}
               className={
                 "relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               }

@@ -7,10 +7,10 @@ export default async function Orders({
   params: { pagination: string };
 }) {
   const orders = await prisma.order.findMany({
-    skip: 2 * (Number(params.pagination) - 1),
-    take: 2,
+    skip: 12 * (Number(params.pagination) - 1),
+    take: 12,
   });
-  const totalPagination = Math.ceil((await prisma.order.count()) / 2);
+  const totalPagination = Math.ceil((await prisma.order.count()) / 12);
   return (
     <>
       <div className="mt-4 px-4 sm:px-6 lg:px-8">
