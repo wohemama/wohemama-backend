@@ -1,5 +1,5 @@
 import Pagination from "../../../commponents/pagination";
-import prisma from '../../../utils/prismaClient'
+import prisma from "../../../utils/prismaClient";
 
 export default async function Orders({
   params,
@@ -10,7 +10,7 @@ export default async function Orders({
     skip: 2 * (Number(params.pagination) - 1),
     take: 2,
   });
-  const totalPagination = Math.ceil(await prisma.order.count() / 2);
+  const totalPagination = Math.ceil((await prisma.order.count()) / 2);
   return (
     <>
       <div className="mt-4 px-4 sm:px-6 lg:px-8">
@@ -106,13 +106,15 @@ export default async function Orders({
                     ))}
                   </tbody>
                 </table>
-                
+                <Pagination
+                  currentPagination={Number(params.pagination)}
+                  totalPagination={totalPagination}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Pagination currentPagination={Number(params.pagination)} totalPagination={totalPagination} />
     </>
   );
 }
