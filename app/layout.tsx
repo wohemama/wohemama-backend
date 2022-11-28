@@ -11,12 +11,11 @@ import {
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { Dialog, Menu, Transition } from "@headlessui/react";
-console.log(location.pathname.substring(0, 7))
+import { useSelectedLayoutSegment  } from 'next/navigation'
 
-const sidebarNavigation = [
-  { name: "Home", href: "/", icon: HomeIcon, current: location.pathname === '/' ? true : false },
-  { name: "订单", href: "/orders/1", icon: BuildingStorefrontIcon, current: location.pathname.substring(0, 7) === '/orders' ? true : false },
-];
+
+
+
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Sign out", href: "#" },
@@ -30,7 +29,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const segment = useSelectedLayoutSegment()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const sidebarNavigation = [
+    { name: "Home", href: "/", icon: HomeIcon, current: segment === null ? true : false },
+    { name: "订单", href: "/orders/1", icon: BuildingStorefrontIcon, current: segment === 'orders' ? true : false },
+  ];
   return (
     <html lang="zh-CN" className="h-full bg-gray-50">
       {/*
