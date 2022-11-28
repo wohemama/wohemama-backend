@@ -1,5 +1,5 @@
-import Pagination from "../../../commponents/pagination";
-import prisma from "../../../utils/prismaClient";
+import Pagination from "../../../../commponents/pagination";
+import prisma from "../../../../utils/prismaClient";
 
 export default async function Orders({
   params,
