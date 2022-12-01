@@ -31,9 +31,9 @@ export default function RootLayout({
   const sidebarNavigation = [
     {
       name: "Home",
-      href: "/",
+      href: "/dashboard",
       icon: HomeIcon,
-      current: segment === null ? true : false,
+      current: segment === "dashboard" ? true : false,
     },
     {
       name: "订单",
