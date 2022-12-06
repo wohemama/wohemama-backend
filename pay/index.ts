@@ -25,6 +25,25 @@ const alipaySdk = new AlipaySdk({
   ),
 });
 
+export const orderQuery = async (outTradeNo) => {
+  const result = await api.orderQuery(outTradeNo);
+  return result;
+}
+
+export const alipayOrderQuery = async (outTradeNo) => {
+  const result = await alipaySdk.exec('alipay.trade.query',{
+    bizContent: {
+      out_trade_no: outTradeNo
+    }
+  });
+  return result;
+}
+
+export const checkNotifySign = (postData) => {
+  return alipaySdk.checkNotifySign(postData);
+},
+
+
 export const alipay = async (biz, outTradeNo, totalAmount) => {
   const formData = new AlipayFormData();
   // 调用 setMethod 并传入 get，会返回可以跳转到支付页面的 url

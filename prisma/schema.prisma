@@ -22,7 +22,11 @@ model Order {
   cartData String
   platform String
   status String
+  isNotified Boolean
   outTradeNo String
+  tradeNo String
+  totalPrice Float
+  seller String
 }
 
 model Account {

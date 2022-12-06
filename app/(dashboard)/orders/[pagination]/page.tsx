@@ -1,12 +1,19 @@
+import { redirect } from "next/navigation";
 import Pagination from "../../../../commponents/pagination";
 import prisma from '../../../../utils/prismaClient'
+import { getCurrentUser } from "../../../../utils/session";
 
 export default async function Orders({
   params,
 }: {
   params: { pagination: string };
 }) {
+  const user = await getCurrentUser()
+  if (!user) {
+    redirect('/login')
+  }
   const orders = await prisma.order.findMany({
+    where: { seller: user?.email },
     skip: 12 * (Number(params.pagination) - 1),
     take: 12,
   });
@@ -19,14 +26,7 @@ export default async function Orders({
             <h1 className="text-xl font-semibold text-gray-900">订单</h1>
             <p className="mt-2 text-sm text-gray-700">订单列表</p>
           </div>
-          <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
-            >
-              Add user
-            </button>
-          </div>
+
         </div>
         <div className="mt-8 flex flex-col">
           <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">

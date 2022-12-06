@@ -5,7 +5,6 @@ import {
   BuildingStorefrontIcon,
   HomeIcon,
   Bars4Icon,
-  PlusIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
@@ -253,13 +252,7 @@ export default function RootLayout({
                   </Transition>
                 </Menu>
 
-                <button
-                  type="button"
-                  className="flex bg-indigo-600 p-1 rounded-full items-center justify-center text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <PlusIcon className="h-6 w-6" aria-hidden="true" />
-                  <span className="sr-only">Add file</span>
-                </button>
+
               </div>
             </div>
           </div>
