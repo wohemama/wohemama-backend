@@ -90,7 +90,7 @@ export default async function handle(
         ...req.body,
         status: "init",
         outTradeNo,
-        totalPrice: totalAmount,
+        totalPrice: Number(totalAmount),
       },
     });
 

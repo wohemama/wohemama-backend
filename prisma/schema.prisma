@@ -22,9 +22,9 @@ model Order {
   cartData String
   platform String
   status String
-  isNotified Boolean
-  outTradeNo String
-  tradeNo String
+  isNotified Boolean?
+  outTradeNo String @unique
+  tradeNo String?
   totalPrice Float
   seller String
 }

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Order" ALTER COLUMN "isNotified" DROP NOT NULL,
+ALTER COLUMN "tradeNo" DROP NOT NULL;
