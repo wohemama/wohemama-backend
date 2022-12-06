@@ -41,7 +41,7 @@ export const alipayOrderQuery = async (outTradeNo) => {
 
 export const checkNotifySign = (postData) => {
   return alipaySdk.checkNotifySign(postData);
-},
+}
 
 
 export const alipay = async (biz, outTradeNo, totalAmount) => {
