@@ -127,16 +127,16 @@ export default async function handle(
     const order = await prisma.order.findUnique({
       where: { outTradeNo: req.query.outTradeNo },
     });
-    if (order?.status === "init") {
-      res.status(200).json({ status: "init" });
-      return;
-    }
+    // if (order?.status === "init") {
+    //   res.status(200).json({ status: "init" });
+    //   return;
+    // }
     if (order?.status === "paid") {
       res.status(200).json({ status: "支付成功" });
       return;
     }
     if (order?.payMethod === "tenpay") {
-      const result = await orderQuery(order.outTradeNo);
+      const result = await orderQuery({ out_trade_no: order.outTradeNo });
       if (
         result.trade_state === "SUCCESS" &&
         result.total_fee == order.totalPrice * 100 &&

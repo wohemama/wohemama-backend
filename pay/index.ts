@@ -25,7 +25,7 @@ const alipaySdk = new AlipaySdk({
   ),
 });
 
-export const orderQuery = async (outTradeNo) => {
+export const orderQuery = async (outTradeNo: {out_trade_no: string}) => {
   const result = await api.orderQuery(outTradeNo);
   return result;
 }
