@@ -4,6 +4,7 @@ import Cors from "cors";
 import { alipay, alipayOrderQuery, orderQuery, tenpay } from "../../../pay";
 import Big from "big.js";
 import { uniqueId } from "../../../utils";
+import checkeCartItemPrice from "../../../utils/checkCartItemPrice";
 
 const prisma = new PrismaClient();
 
@@ -74,6 +75,8 @@ export default async function handle(
   await runMiddleware(req, res, cors);
   if (req.method === "POST") {
     const parsedCart = JSON.parse(req.body.cartData ?? null) || [];
+    const isChecked = await checkeCartItemPrice(parsedCart)
+    if (!isChecked) return res.status(204).json({});
     const totalAmount = parsedCart
       .map((i) => new Big(i.itemPrice).times(i.itemCount))
       .reduce((m, n) => new Big(m).plus(n), 0);
