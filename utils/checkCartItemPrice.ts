@@ -37,8 +37,7 @@ export default async function checkeCartItemPrice(parsedCart) {
         });
       });
     })
-    .catch((error) => {
-      console.log("errorerror", error);
+    .catch(() => {
       ischeckout = false;
     });
   return ischeckout;

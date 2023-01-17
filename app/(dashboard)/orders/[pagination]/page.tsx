@@ -17,7 +17,9 @@ export default async function Orders({
     skip: 12 * (Number(params.pagination) - 1),
     take: 12,
   });
-  const totalPagination = Math.ceil((await prisma.order.count()) / 12);
+  const totalPagination = Math.ceil((await prisma.order.count({
+    where: { seller: user?.email },
+  })) / 12);
   return (
     <>
       <div className="mt-4 px-4 sm:px-6 lg:px-8">
