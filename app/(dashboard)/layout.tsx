@@ -10,15 +10,13 @@ import {
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { useSelectedLayoutSegment } from "next/navigation";
+import {classNames} from "../../utils"
 
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "账户信息", href: "/profile" },
+  { name: "退出", href: "#" },
 ];
 
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
 export default function RootLayout({
   children,
 }: {
