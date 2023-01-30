@@ -14,7 +14,7 @@ export default async function Profile() {
   return (
     <Tabs
       user={{ name: user.name!, email: user.email!, id: user.id }}
-      website={profile.website}
+      website={profile && profile.website || ''}
       host={process.env.NEXTAUTH_URL!}
     />
   );

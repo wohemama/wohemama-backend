@@ -74,7 +74,7 @@ export default async function handle(
   await runMiddleware(req, res, cors);
   if (req.method === "POST") {
     const parsedCart = JSON.parse(req.body.cartData ?? null) || [];
-    const isChecked = await checkeCartItemPrice(parsedCart)
+    const isChecked = await checkeCartItemPrice(parsedCart, req.body.seller)
     if (!isChecked) return res.status(204).json({});
     const totalAmount = parsedCart
       .map((i) => new Big(i.itemPrice).times(i.itemCount))
