@@ -29,10 +29,8 @@ export default async function checkeCartItemPrice(parsedCart, seller) {
     );
   if (
     itemUrlList.some((url) => {
-      const parseResult =
-        parseDomain(new URL(url).host)(
-          parseResult.domain + "." + parseResult.topLevelDomains
-        ) !== domain;
+      const parseResult = parseDomain(new URL(url).host);
+      return parseResult.domain + "." + parseResult.topLevelDomains !== domain;
     })
   )
     return false;
