@@ -1,9 +1,8 @@
 import client from "../../../utils/prismaClient";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
-import { checkNotifySign } from "../../../pay";
 
-const prisma = client
+
 
 // Initializing the cors middleware
 const cors = Cors({
@@ -54,23 +53,26 @@ export default async function handle(
   res: NextApiResponse
 ) {
   await runMiddleware(req, res, cors);
-  if (checkNotifySign(req.query.body)) {
-    const id = req.query.body["out_trade_no"];
-    const order = await prisma.order.findUnique({ where: { outTradeNo: id } });
-    if (
-      req.query.body["trade_status"] === "TRADE_SUCCESS" &&
-      req.query.body["total_amount"] * 100 === order.totalPrice * 100 &&
-      !order.isNotified
-    ) {
-      await prisma.order.update({
-        where: { outTradeNo: id },
-        data: {
-          tradeNo: ctx.request.body["trade_no"],
-          isNotified: true,
-          status: "paid",
-        },
-      });
-      return "success";
+  if (req.method === "POST") {
+    const website = req.body["website"];
+    const userId = req.body['userId']
+    console.log(website, userId)
+    const profile = await client.profile.findUnique({ where: { userId } });
+    if (profile) {
+      await client.profile.update({
+          where: { userId },
+          data: {
+            website
+          },
+        });
+    } else {
+      await client.profile.create({
+          data: {
+              website,
+              userId
+          }
+      })
     }
+    return res.status(200).json({message: 'sucess'})
   }
 }

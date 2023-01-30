@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import client from "../../../utils/prismaClient";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
 import { alipay, alipayOrderQuery, orderQuery, tenpay } from "../../../pay";
@@ -6,8 +6,7 @@ import Big from "big.js";
 import { uniqueId } from "../../../utils";
 import checkeCartItemPrice from "../../../utils/checkCartItemPrice";
 
-const prisma = new PrismaClient();
-
+const prisma = client
 // Initializing the cors middleware
 const cors = Cors({
   methods: ["GET", "POST", "HEAD"],
