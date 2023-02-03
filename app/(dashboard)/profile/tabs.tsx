@@ -57,7 +57,7 @@ export default function Tabs({
           <h1 className="text-3xl font-extrabold text-gray-900">账户信息</h1>
         </div>
         <div className="px-4 sm:px-6 md:px-0">
-          <div className="py-6">
+          <div className="py-6 w-80">
             {/* Tabs */}
             <div className="lg:hidden">
               <label htmlFor="selected-tab" className="sr-only">

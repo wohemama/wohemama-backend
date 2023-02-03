@@ -66,22 +66,12 @@ export default function Login() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 ">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <img
-              className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-              alt="Workflow"
-            />
+
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Sign in to your account
+              登录到您的后台系统
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
-              Or{" "}
-              <a
-                href="#"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                start your 14-day free trial
-              </a>
+              如果是第一次登录系统，系统会自动创建账户
             </p>
           </div>
 
@@ -93,7 +83,7 @@ export default function Login() {
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Email address
+                    电子邮箱
                   </label>
                   <div className="mt-1">
                     <input
@@ -120,7 +110,7 @@ export default function Login() {
                     {isLoading && (
                       <ArrowPathIcon className="mr-2 h-4 w-4 animate-spin" />
                     )}
-                    Sign in
+                    登录
                   </button>
                 </div>
               </form>
@@ -132,7 +122,7 @@ export default function Login() {
                   </div>
                   <div className="relative flex justify-center text-sm">
                     <span className="px-2 bg-white text-gray-500">
-                      Or continue with
+                      或者用Github账户
                     </span>
                   </div>
                 </div>
