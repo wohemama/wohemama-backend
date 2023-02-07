@@ -28,7 +28,7 @@ export default function RootLayout({
 
   const sidebarNavigation = [
     {
-      name: "Home",
+      name: "总览",
       href: "/dashboard",
       icon: HomeIcon,
       current: segment === "dashboard" ? true : false,
@@ -45,13 +45,6 @@ export default function RootLayout({
       {/* Narrow sidebar */}
       <div className="hidden w-28 bg-indigo-700 overflow-y-auto md:block">
         <div className="w-full py-6 flex flex-col items-center">
-          <div className="flex-shrink-0 flex items-center">
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
-              alt="Workflow"
-            />
-          </div>
           <div className="flex-1 mt-6 w-full px-2 space-y-1">
             {sidebarNavigation.map((item) => (
               <a
@@ -128,13 +121,7 @@ export default function RootLayout({
                     </button>
                   </div>
                 </Transition.Child>
-                <div className="flex-shrink-0 px-4 flex items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
-                    alt="Workflow"
-                  />
-                </div>
+
                 <div className="mt-5 flex-1 h-0 px-2 overflow-y-auto">
                   <nav className="h-full flex flex-col">
                     <div className="space-y-1">
@@ -215,11 +202,7 @@ export default function RootLayout({
                   <div>
                     <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
-                        alt=""
-                      />
+                      个人信息
                     </Menu.Button>
                   </div>
                   <Transition
@@ -238,8 +221,8 @@ export default function RootLayout({
                             <a
                               href={item.href}
                               onClick={() => {
-                                if (item.name === '退出') {
-                                  signOut()
+                                if (item.name === "退出") {
+                                  signOut();
                                 }
                               }}
                               className={classNames(
