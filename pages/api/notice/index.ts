@@ -54,23 +54,15 @@ export default async function handle(
 ) {
   await runMiddleware(req, res, cors);
   if (req.method === "POST") {
-    const website = req.body["website"];
-    const userId = req.body['userId']
-    const profile = await client.profile.findUnique({ where: { userId } });
-    if (profile) {
-      await client.profile.update({
-          where: { userId },
-          data: {
-            website
-          },
-        });
-    } else {
-      await client.profile.create({
-          data: {
-              website,
-              userId
-          }
-      })
+    const email = req.body["email"];
+
+    const notice = await client.notice.findUnique({ where: { email } });
+    if (!notice) {
+        await client.notice.create({
+            data: {
+                email
+            }
+        })
     }
     return res.status(200).json({message: 'sucess'})
   }
