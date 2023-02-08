@@ -96,7 +96,7 @@ export default async function RootLayout({
             <div className="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
               <div className="flex items-center">
                 <a href="/">
-                  <span className="sr-only">Workflow</span>
+                  <span className="sr-only">wohemama logo</span>
                   <img
                     className="h-10 w-auto"
                     src="/logo.svg"
@@ -184,7 +184,7 @@ export default async function RootLayout({
               ))}
             </div>
             <p className="mt-8 text-center text-base text-gray-400">
-              &copy; 2023 我和妈妈. 版权所有.
+              &copy; 2023 我和码码（天津）科技有限公司. 版权所有.
             </p>
           </div>
         </footer>
