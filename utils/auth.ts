@@ -28,9 +28,9 @@ const sendVerificationRequest = ({ identifier, url }) => {
   });
   const emailTemplate = Handlebars.compile(emailFile);
   transporter.sendMail({
-    from: `"⚡ Magic NextAuth" ${process.env.EMAIL_FROM}`,
+    from: `"⚡ 我和码码团队" ${process.env.EMAIL_FROM}`,
     to: identifier,
-    subject: 'Your sign-in link for Magic NextAuth',
+    subject: '我和码码登录链接',
     html: emailTemplate({
       base_url: process.env.NEXTAUTH_URL,
       signin_url: url,

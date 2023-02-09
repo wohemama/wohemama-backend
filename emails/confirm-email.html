@@ -327,7 +327,6 @@
     <![endif]-->
   </head>
   <body>
-    <span class="preheader">This link will expire in 10 min.</span>
     <table
       class="email-wrapper"
       width="100%"
@@ -344,13 +343,7 @@
             cellspacing="0"
             role="presentation"
           >
-            <tr>
-              <td class="email-masthead">
-                <a href="{{base_url}}" class="f-fallback email-masthead_name">
-                  ⚡ Magic NextAuth
-                </a>
-              </td>
-            </tr>
+
             <!-- Email Body -->
             <tr>
               <td
@@ -372,8 +365,8 @@
                     <td class="content-cell">
                       <div class="f-fallback">
                         <p>
-                          Click the button below to log in to Magic NextAuth.<br />
-                          This button will expire in 10 minutes.
+                          单击如下链接登录到您的我和码码后台<br />
+                          这个链接将在10分钟后过期！
                         </p>
                         <!-- Action -->
                         <table
@@ -386,8 +379,6 @@
                         >
                           <tr>
                             <td align="center">
-                              <!-- Border based button
-           https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
                               <table
                                 width="100%"
                                 border="0"
@@ -401,7 +392,7 @@
                                       href="{{signin_url}}"
                                       class="f-fallback button"
                                       target="_blank"
-                                      >Login to Magic NextAuth</a
+                                      >登录到您的我和码码后台</a
                                     >
                                   </td>
                                 </tr>
@@ -410,18 +401,16 @@
                           </tr>
                         </table>
                         <p>
-                          Confirming this request will securely log you in using
-                          {{email}}.
+                          这个链接将会用{{email}}安全地让您登录到您的我和码码后台
+                          
                         </p>
-                        <p>Best,<br />The Magic NextAuth Team</p>
+                        <p>敬上,<br />我和码码团队</p>
                         <!-- Sub copy -->
                         <table class="body-sub" role="presentation">
                           <tr>
                             <td>
                               <p class="f-fallback sub">
-                                If you’re having trouble with the button above,
-                                copy and paste the URL below into your web
-                                browser.
+                                如果您点击这个链接有问题，可以直接复制如下链接：
                               </p>
                               <p class="f-fallback sub">{{signin_url}}</p>
                             </td>
@@ -446,7 +435,7 @@
                   <tr>
                     <td class="content-cell" align="center">
                       <p class="f-fallback sub align-center">
-                        &copy; 2021 Magic NextAuth. All rights reserved.
+                        &copy; 2023 我和码码（天津）科技有限公司. 版权所有.
                       </p>
                     </td>
                   </tr>
