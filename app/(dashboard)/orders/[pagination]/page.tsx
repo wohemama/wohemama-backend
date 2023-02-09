@@ -13,12 +13,12 @@ export default async function Orders({
     redirect('/login')
   }
   const orders = await prisma.order.findMany({
-    where: { seller: user?.email },
+    where: { seller: user!.email! },
     skip: 12 * (Number(params.pagination) - 1),
     take: 12,
   });
   const totalPagination = Math.ceil((await prisma.order.count({
-    where: { seller: user?.email },
+    where: { seller: user!.email! },
   })) / 12);
   return (
     <>

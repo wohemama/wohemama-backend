@@ -55,11 +55,11 @@ export default async function handle(
   await runMiddleware(req, res, cors);
   if (req.method === "POST") {
     const website = req.body["website"];
-    const userId = req.body['userId']
-    const profile = await client.profile.findUnique({ where: { userId } });
+    const userEmail = req.body['userEmail']
+    const profile = await client.profile.findUnique({ where: { userEmail } });
     if (profile) {
       await client.profile.update({
-          where: { userId },
+          where: { userEmail },
           data: {
             website
           },
@@ -68,7 +68,7 @@ export default async function handle(
       await client.profile.create({
           data: {
               website,
-              userId
+              userEmail
           }
       })
     }

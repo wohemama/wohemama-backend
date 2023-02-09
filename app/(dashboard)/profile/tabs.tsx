@@ -14,7 +14,7 @@ export default function Tabs({
   website,
   host,
 }: {
-  user: { name: string; email: string; id: string };
+  user: { name: string; email: string;};
   website: string;
   host: string;
 }) {
@@ -136,7 +136,7 @@ export default function Tabs({
                   axios
                     .post(`${host}/api/profile`, {
                       website: formJson.domain,
-                      userId: user.id,
+                      userEmail: user.email,
                     })
                     .then((res) => {
                       if (res.data.message === "sucess") {

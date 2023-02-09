@@ -9,11 +9,11 @@ export default async function Profile() {
     redirect("/login");
   }
   const profile = await client.profile.findUnique({
-    where: { userId: user.id },
+    where: { userEmail: user!.email! },
   });
   return (
     <Tabs
-      user={{ name: user.name!, email: user.email!, id: user.id }}
+      user={{ name: user.name!, email: user.email! }}
       website={profile && profile.website || ''}
       host={process.env.NEXTAUTH_URL!}
     />

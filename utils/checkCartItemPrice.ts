@@ -12,7 +12,7 @@ export default async function checkeCartItemPrice(parsedCart, seller) {
   });
   if (!user) return false;
   const profile = await client.profile.findUnique({
-    where: { userId: user!.id },
+    where: { userEmail: user!.email! },
   });
   if (!profile) return false;
   const domain = profile?.website;
